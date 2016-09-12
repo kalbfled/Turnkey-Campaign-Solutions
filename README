@@ -2,7 +2,7 @@
 
 All rights reserved.  You are welcome to inspect this code for your education or to evaluate the author's qualifications.  No other uses are permitted.
 
------------------------------------------
+---------------------------------------------------------------------------------------
 
 Turnkey Campaign Solutions (TCS) is a business concept that I implemented to satisfy the requirements for my Master of Science degree in Computer Science.  My intended audience included political and issue advocacy campaigns, and my software solution intended to give campaigns tools to empower their supporters to collect information about voter preferences.
 
@@ -16,17 +16,30 @@ Not included in this or any other public repository is the original version of C
 TO RUN THIS CODE:
 
 1. Clone the repository.
+
 2. Install Pip, the Python package manager.
     https://pypi.python.org/pypi/pip
+
 3. Install Virtual Environment.
     $ pip install virtualenv
-4. In the cloned directory, activate the virtual environment.
+
+4. In the cloned directory, create a new virtual environment.
+    $ virtualenv venv
+
+5. In the cloned directory, activate the virtual environment.
     Windows: venv\Scripts\activate
     Not Windows: $ source venv/bin/activate
-5. Install Python package dependencies.
+
+6. Install Python package dependencies.
     $ pip install -r requirements.txt
-6. Initialize the SQLite database.
+
+7. Create migrations files for Django's built-in components.
+    $ python manage.py makemigrations
+
+8. Initialize the SQLite database.
     $ python manage.py migrate
-7. Run the development server.
+
+9. Run the development server.
     $ python manage.py runserver
-8. Go to the displayed URL, which is probably http://127.0.0.1:8000.
+
+10. Open the URL http://127.0.0.1:8000.
