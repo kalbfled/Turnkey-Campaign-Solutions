@@ -1,0 +1,47 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/tcs-logged-in.html" %}
+
+{% block body %}
+<h1>Voter Lists</h1>
+
+<p class="text-info">Your workers will be given contact information for voters contained in active lists.</p>
+
+<form method='post' action="{% url 'voter_lists_activity' %}" enctype='multipart/form-data' role="form">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {{ form.non_field_errors }}
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>List Name</th>
+            <th>Processed</th>
+            <th>Voters Contacted</th>
+            <th>Active</th>
+        </tr>
+        {% for form in formset %}
+        <tr>
+            <td title="Uploaded {{ form.instance.upload_datetime }}">{{ form.instance.getShortFileName }}</td>
+            <td>{{ form.instance.processed }}</td>
+            <td>TODO</td>
+            <td>{{ form.id }}{{ form.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <input type="submit" value="Save Preferences" class="btn btn-primary btn-block btn-lg">
+</form>
+
+<h2>Upload</h2>
+
+<p>Upload a list of voters in the <a href="http://www.turnkeycampaignsolutions.com/voter_list_requirements.html" target="_blank">required format</a>.  Use a descriptive file name without spaces, and try not to include the same voter in multiple lists.</p>
+
+<form method='post' action="{% url 'voter_lists' %}" enctype='multipart/form-data' role="form">
+    {% csrf_token %}
+    {% include "tcswebapp/bootstrap-vertical-form.html" with form=upload_form %}
+    <input type="submit" value="Upload" class="btn btn-primary btn-block btn-lg">
+</form>
+{% endblock %}

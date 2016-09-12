@@ -1,0 +1,36 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/base.html" %}
+
+{% block body %}
+<h1>Turnkey Campaign Solutions&trade;</h1>
+<h2>Register</h2>
+
+<p class="text-primary">All information is required.</p>
+
+<form method='post' action="{% url 'tcsuser_register' %}" role="form">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Login Credentials</legend>
+        {% include "tcswebapp/bootstrap-vertical-form.html" with form=user_form %}
+    </fieldset>
+    <fieldset>
+        <legend>Your Details</legend>
+        <p class="text-info">Turnkey Campaign Solutions&trade; only shares your details with campaigns you request to join so these campaigns can verify your identity before giving you access to sensitive information.</p>
+        {% include "tcswebapp/bootstrap-vertical-form.html" with form=profile_form %}
+        {% include "tcswebapp/bootstrap-vertical-form.html" with form=address_form %}
+    </fieldset>
+    <p>You must accept the <a href="http://www.turnkeycampaignsolutions.com/tos.pdf" target="_blank">terms of service</a> to use this site.</p>
+    <div class="form-group">
+        {{ tos_form.accepts_tos.label_tag }} {{ tos_form.accepts_tos.help_text }}
+        {{ tos_form.accepts_tos.errors }}
+        {{ tos_form.accepts_tos }}
+    </div>
+    <input type='submit' value='Register' class="btn btn-primary btn-block btn-lg">
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends 'campaigner/base-campaigner.html' %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'campaigner/campaigner-campaigns.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<h1>Your Campaigns</h1>
+<p class="text-info">Check the campaigns for which to contact voters.  These preferences take effect when you're finished with the voters already in your queue.  Each new voter will be a consituent of every checked campaign.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact Voters</th>
+        </tr>
+    </thead>
+    <tbody id=campaigns_body></tbody>
+</table>
+<a href="{% url 'campaigner_dial' %}" role="button" class="btn btn-success btn-block btn-lg campaigner">Start</a>
+<button id=update type="button" class="btn btn-primary btn-block btn-lg">Refresh List</button>
+
+<script>
+if (typeof(Storage) !== 'undefined') {
+    // TODO - Don't hard code the API url.
+    var campaigns = new Campaigns('/api/v1/campaign/', 'campaigns_body', 'campaigns');
+    document.getElementById('update').addEventListener('click', function() { campaigns.update(); });
+    /**
+    The "onunload" event cannot be counted on to work.  When this changes, uncomment one of these lines (in
+    order of greatest preference), and remove the calls to Campaigns.save in other methods of the Campaigns
+    object.  The second line seems to work on Firefox and some other browers; the first line fails for Firefox.
+    **/
+    //document.getElementsByTagName('body')[0].addEventListener("unload", function() { campaigns.save(); });
+    //document.getElementsByTagName('body')[0].onunload = function() { campaigns.save(); };
+} else {
+    alert('HTML5 local storage is not available.  Please upgrade your browser.');
+}
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/tcs-logged-in.html" %}
+
+{% block body %}
+<h1>Home</h1>
+<p>Welcome, <a href="{% url 'tcsuser_edit' %}">{{ user.get_full_name }}</a>.</p>
+
+<ul class="nav nav-tabs">
+  {% if user.campaign %}<li class="active"><a data-toggle="tab" href="#menu1">{{ user.campaign.name }}</a></li>{% endif %}
+  <li{% if not user.campaign %} class="active"{% endif %}><a data-toggle="tab" href="#menu2">Volunteering ({{ user.works_for.count }})</a></li>
+  {% if user.prospect_for.all %}<li><a data-toggle="tab" href="#menu3">Pending ({{ user.prospect_for.count }})</a></li>{% endif %}
+</ul>
+
+<div class="tab-content">
+    {% if user.campaign %}
+    <div id="menu1" class="tab-pane fade in active"> <!-- Campaign user owns -->
+        <p>Your campaign's Id is {{ user.campaign.id }}.  Give this number to prospective volunteers to help them find your campaign.</p>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Volunteers{% if user.campaign.prospects.count > 0 %} <em>(prospects)</em>{% endif %}</th>
+                <th>Voters Contacted</th>
+            </tr>
+            <tr>
+                <td>{{ user.campaign.workers.count }}{% if user.campaign.prospects.count > 0 %} <span class="badge">{{ user.campaign.prospects.count }}</span>{% endif %}</td>
+                {% with contact_count=user.campaign.votercontact_set.count voter_count=user.campaign.voters.count %}
+                <td><div class="progress"><div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="{{ contact_count }}" aria-valuemin="0" aria-valuemax="{{ voter_count }}" style="width: {% widthratio contact_count voter_count 100 %}%">{{ contact_count }} of {{ voter_count }}</div></div></td>
+                {% endwith %}
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-sm-4"><a href="{% url 'campaign_manage' user.campaign.id %}" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-user"></span> Manage Volunteers</a></div>
+            <div class="col-sm-4"><a href="{% url 'voter_lists' %}" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-list"></span> Manage Voter Lists</a></div>
+            <div class="col-sm-4"><a href="{% url 'campaign_edit' user.campaign.id %}" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-edit"></span> Edit Campaign</a></div>
+        </div>
+    </div> <!-- End menu1 -->
+    {% endif %}
+
+    <div id="menu2" class="tab-pane fade{% if not user.campaign %} in active{% endif %}"> <!-- Campaigns for which the user works -->
+        {% if campaigns_supported %}
+        <p>You may contact voters for these campaigns.</p>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Campaign Name</th>
+                <th>Voters You've Contacted</th>
+                <th>Campaign Phone Number</th>
+            </tr>
+            {% for campaign, count in campaign_counts %}
+            <tr>
+                <td>{{ campaign.name }}</td>
+                <td>{{ count }}</td>
+                <td>{{ campaign.phone_number }}</td>
+                <td><a href="{% url 'campaign_leave' campaign.id %}">leave</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <a href="{% url 'campaign_search' %}" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-search"></span> Find a campaign</a>
+    </div> <!-- End menu2 -->
+
+    {% if user.prospect_for.all %}
+    <div id="menu3" class="tab-pane fade"> <!-- Campaigns for which the user has volunteered -->
+        <p>These campaigns have not responded to your offer to volunteer.</p>
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Office</th>
+                <th>State</th>
+                <th>District</th>
+                <th>Ballot Line</th>
+            </tr>
+            {% for campaign in user.prospect_for.all %}
+            <tr>
+                <td>{{ campaign.name }}</td>
+                <td>{{ campaign.office }}</td>
+                <td>{{ campaign.state }}</td>
+                <td>{{ campaign.district }}</td>
+                <td>{{ campaign.ballot_line }}</td>
+                <td><a href="{% url 'campaign_leave' campaign.id %}">withdraw</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div> <!-- End menu3 -->
+    {% endif %}
+</div> <!-- End tab-content -->
+{% endblock %}

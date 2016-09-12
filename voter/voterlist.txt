@@ -1,0 +1,12 @@
+registrar_id	registration_date	street	city	state	country	postal_code	first_name	last_name	phone_number1	phone_number2	dob	gender	affiliation	ignore_this	email	ignore_this_too
+{4E061E97-91EE-4987-B8B3-580688B817BB}	1991-11-05	49 S Byron ST	Cicero	IN	US	44444	DONALD J. 	Duck	3179845352		1966-03-08	F	Republican	Ignore this gibberish.		Ignore this gibberish too.
+{4E061E97-91EE-4987-B8B3-580688B817BB}	1991-11-05	49 S Byron ST	Cicero	IN	US	44444	DONALD J. 	Duck	3179845352		1966-03-08	F	Republican	Ignore this gibberish.		Ignore this gibberish too.
+{4E061E97-91EE-4987-B8B3-580688B817BB}		59 S Byron ST	Cicero	IN		44444	DONALD J. 	Duck						Ignore this gibberish.		Ignore this gibberish too.
+{224DA3D5-B879-4587-B2C8-A810D12C9669}	2003-05-28	6325 S 1000 W	Pendleton	IN	US	44444	DAISY L. 	Duck			1945-11-21	F	Republican		rightwinger@elephant.net	
+{197B3DAC-211D-410B-80C9-173644C3D634}	1984-10-10	6329 S 1000 W	Pendleton	IN	US	44444	HUEY M. 	Duck			1937-05-04		Republican			
+{4032B2D8-1CF9-4797-8358-0DE871278861}	1999-06-02	6363 S 1000 W	Pendleton	IN	US	44444	DUEY H. 	Duckie			1947-08-29	M	Smurf Party			
+{25BD5987-D581-4B7C-8D74-838183030D78}	1986-05-21	6363 S 1000 W	Pendleton	IN	US	44444	LOUIS J. 	Duck			1960-10-06		rep			
+{C8DB32B0-AF35-4CAA-AD60-8F6C666EAA82}	2005-06-08	6363 S 1000 W	Pendleton	IN	US	44444	VICTORIA A. 	Secret	7655344563		1987-01-11	F	Democratic			
+{51D2D2FA-B733-4FA0-A8C5-3BCC69D6B09E}	2008-04-18	6483 S 1000 W	Pendleton	IN	US	44444	 		7652784356		1962-09-23	F	Democratic			
+{C668DAA3-F9FF-461A-B793-E674B2CDFDC6}	2004-10-05	1001 E 101st ST	Indianapolis	IN	US	44444	RUSTY K. 	Doe	3178465755		1968-10-16	M	democratic		leftwinger@donkey.com	
+	2002-03-07	1500 E 101st ST	Indianapolis	IN	US	44444	ANITA J. 	Mann	3178449212		1958-06-13		dem			

@@ -1,0 +1,6 @@
+venv/
+voter_lists/
+staticfiles/
+*~
+*.pyc
+tcs.sqlite

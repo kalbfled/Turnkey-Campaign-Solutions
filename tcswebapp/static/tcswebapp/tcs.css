@@ -1,0 +1,34 @@
+/***
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+***/
+
+/* This is for form error messages. */
+ul.errorlist
+{
+    color: red;
+    background-color: lemonchiffon;
+}
+
+/* These are primarily for tcswebapp/home.html. */
+td div.progress { margin-bottom: 0; }
+
+.btn-block, div.col-sm-4
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Limit the width of some elements on devices larger than typical cellular phones. */
+@media screen and (min-device-width:5in)
+{
+    /* Inputs should not span the entire width of the display. */
+    a.btn-block, div.alert, fieldset, input, select, ul.errorlist { max-width: 5in; }
+}
+
+/* This negates the sytle above for select anchors used as buttons. */
+a.campaigner { max-width: 100%; }
+
+ul.nav-tabs { margin-bottom: 5px; }

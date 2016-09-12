@@ -1,0 +1,32 @@
+(C) David J. Kalbfleisch 2013 (The code is this repository), 2016 (This file)
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate the author's qualifications.  No other uses are permitted.
+
+-----------------------------------------
+
+Turnkey Campaign Solutions (TCS) is a business concept that I implemented to satisfy the requirements for my Master of Science degree in Computer Science.  My intended audience included political and issue advocacy campaigns, and my software solution intended to give campaigns tools to empower their supporters to collect information about voter preferences.
+
+This repository includes the server-side application, which runs on Django and uses PostgreSQL in production.  (The development code contained herein uses SQLite.)  I used Bootstrap for "responsive" user interfaces that are appropriate for computer monitors and mobile devices alike, and I used an add-on called TastyPie to implement a RESTful API for client applications.
+
+This repository also includes Campaigner, intended as a client-side application.  I was moving towards full independence from the server code, as is evidenced from the JavaScript that makes asynchronous calls to API endpoints.
+
+Not included in this or any other public repository is the original version of Campaigner, which was an Android application implemented in Java.
+
+
+TO RUN THIS CODE:
+
+1. Clone the repository.
+2. Install Pip, the Python package manager.
+    https://pypi.python.org/pypi/pip
+3. Install Virtual Environment.
+    $ pip install virtualenv
+4. In the cloned directory, activate the virtual environment.
+    Windows: venv\Scripts\activate
+    Not Windows: $ source venv/bin/activate
+5. Install Python package dependencies.
+    $ pip install -r requirements.txt
+6. Initialize the SQLite database.
+    $ python manage.py migrate
+7. Run the development server.
+    $ python manage.py runserver
+8. Go to the displayed URL, which is probably http://127.0.0.1:8000.

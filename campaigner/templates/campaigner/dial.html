@@ -1,0 +1,81 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends 'campaigner/base-campaigner.html' %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'campaigner/campaigner-dial.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<h1>Dial Voters</h1>
+
+<p><span id=remaining>0</span> voters remain in your queue.</p>
+
+<ul class="list-group">
+    <li class="list-group-item"><span id=voter_name>Name: No data</span></li>
+    <li class="list-group-item"><span id=voter_location>Location: No data</span></li>
+    <li class="list-group-item"><span id=voter_phone_number>No phone number</span></li>
+</ul>
+
+<button id=contacted type="button" class="btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-user"></span> Contacted</button>
+<button id=next type="button" class="btn btn-info btn-block btn-lg"><span class="glyphicon glyphicon-arrow-right"></span> Skip</button>
+<button id=drop type="button" class="btn btn-warning btn-block btn-lg"><span class="glyphicon glyphicon-remove"></span> Drop</button>
+<button id=flag type="button" class="btn btn-danger btn-block btn-lg"><span class="glyphicon glyphicon-flag"></span> Wrong number</button>
+<p class="text-right"><button type="button" class="btn btn-lg btn-link" data-toggle="modal" data-target="#helpModal"><span class="glyphicon glyphicon-question-sign"> Help</span></button></p>
+
+<!-- Modal -->
+<div id="helpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Help</h4>
+            </div>
+            <div class="modal-body">
+                <p>On a cellular phone, tap the phone number to dial.</p>
+                <p>CONTACTED - You spoke with the voter.</p>
+                <p>SKIP - You were not able to reach the voter, but you want to try again later.</p>
+                <p>DROP - You were not able to reach the voter, and you do not want to try again later.</p>
+                <p>WRONG NUMBER - The voter is not contactable at the given phone number.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+  </div>
+</div>
+
+<script>
+if (typeof(Storage) !== 'undefined') {
+    var campaign_ids = getCampaignIDs();
+    if (localStorage.voters || campaign_ids.length) {
+        // TODO - Don't hard code the API urls.
+        var voters = new Voters('/api/v1/voter/', '/api/v1/votercontact/', 'remaining', 'voter_name',
+            'voter_location', 'voter_phone_number', campaign_ids);
+        document.getElementById('next').addEventListener('click', function() { voters.next(); });
+        document.getElementById('drop').addEventListener('click', function() { voters.drop(); });
+        document.getElementById('flag').addEventListener('click', function() { voters.flag(); });
+        document.getElementById('contacted').addEventListener('click', function() { voters.makeIR("{% url 'campaigner_IR' %}"); });
+        /**
+        The "onunload" event cannot be counted on to work.  When this changes, uncomment one of these lines (in
+        order of greatest preference), and remove the calls to Voters.save in other methods of the Voters object.
+        The second line seems to work on Firefox and some other browers; the first line fails for Firefox.
+        **/
+        //document.getElementsByTagName('body')[0].addEventListener('unload', function() { voters.save(); });
+        //document.getElementsByTagName('body')[0].onunload = function() { voters.save(); };
+    } else {
+       window.location = "{% url 'campaigner_campaigns' %}"
+    }
+} else {
+    alert('This application requires HTML5 local storage, and it is not available.');
+}
+</script>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/base.html" %}
+
+{% block title %}TCS Campaigner{% endblock %}
+
+{% block head %}
+<!--
+http://www.freepicturesweb.com/pictures/2010-05/2967.html
+This background image appears to be usable with no copyright restrictions.
+-->
+<style>
+    {% load staticfiles %}
+    body {
+        background-image: url("{% static 'campaigner/background.jpg' %}");
+        background-size: cover;
+    }
+</style>
+{% endblock %}
+
+{% block navigation %}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'campaigner_dial' %}">TCS Campaigner&trade;</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'campaigner_dial' %}"><span class="glyphicon glyphicon-earphone"></span> Dial Voters</a></li>
+                <li><a href="{% url 'campaigner_campaigns' %}"><span class="glyphicon glyphicon-wrench"></span> Campaigns</a></li>
+            </ul>
+        </div>
+    </div> <!-- End navigation container -->
+</nav>
+{% endblock %}

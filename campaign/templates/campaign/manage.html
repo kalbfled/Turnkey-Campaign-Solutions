@@ -1,0 +1,73 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/tcs-logged-in.html" %}
+
+{% block body %}
+<h1>Manage Volunteers</h1>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#menu1">Volunteers ({{ campaign.workers.count }})</a></li>
+  <li><a data-toggle="tab" href="#menu2">Prospects ({{ campaign.prospects.count }})</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="menu1" class="tab-pane fade in active"> <!-- workers -->
+        <p>Volunteers can contact voters on behalf of your campaign.</p>
+        {% if volunteer_counts %}
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Voters Contacted</th>
+                <th>Phone Number</th>
+                <th>Street</th>
+                <th>Location</th>
+                <th>Postal Code</th>
+            </tr>
+            {% for volunteer, count in volunteer_counts %}
+            <tr>
+                <td>{{ volunteer.get_full_name }}</td>
+                <td>{{ count }}</td>
+                <td>{{ volunteer.profile.address.street }}</td>
+                <td>{{ volunteer.profile.address.getLocation }}</td>
+                <td>{{ volunteer.profile.address.postal_code }}</td>
+                <td><a href="{% url 'campaign_blacklist' campaign.id volunteer.id %}">blacklist</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>You do not have any volunteers yet.</p>
+        {% endif %}
+    </div> <!-- End menu1 -->
+
+    <div id="menu2" class="tab-pane fade"> <!-- prospects -->
+        {% if campaign.prospects.all %}
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Name (Id)</th>
+                <th>Phone Number</th>
+                <th>Street</th>
+                <th>Location</th>
+                <th>Postal Code</th>
+            </tr>
+            {% for prospect in campaign.prospects.all %}
+            <tr>
+                <td>{{ prospect.get_full_name }} ({{ prospect.pk }})</td>
+                <td>{{ prospect.profile.phone_number }}</td>
+                <td>{{ prospect.profile.address.street }}</td>
+                <td>{{ prospect.profile.address.getLocation }}</td>
+                <td>{{ prospect.profile.address.postal_code }}</td>
+                <td><a href="{% url 'campaign_add' campaign.id prospect.id %}">add</a> | <a href="{% url 'campaign_blacklist' campaign.id prospect.id %}">blacklist</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>You do not have any prospective workers.</p>
+        {% endif %}
+    </div> <!-- End menu2 -->
+</div> <!-- End tab-content -->
+{% endblock %}

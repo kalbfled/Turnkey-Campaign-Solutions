@@ -1,0 +1,23 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/base.html" %}
+
+{% block body %}
+<h1>Turnkey Campaign Solutions&TRADE;</h1>
+<h2>Login</h2>
+
+<form method="post" action="{% url 'login' %}" role="form">
+    {% csrf_token %}
+    {% include "tcswebapp/login-form-body.html" %}
+    <input type="submit" value="Login" class="btn btn-success btn-block btn-lg">
+</form>
+
+<a href="{% url 'tcsuser_register' %}" role="button" class="btn btn-primary btn-block btn-lg">Register</a>
+<p class="text-info">Campaign managers who have already registered may . . .</p>
+<a href="{% url 'campaign_create' %}" role="button" class="btn btn-primary btn-block btn-lg">Create Campaign</a>
+{% endblock %}

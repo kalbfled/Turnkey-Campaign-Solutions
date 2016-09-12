@@ -1,0 +1,308 @@
+[
+  {
+    "fields": {
+      "first_name": "DONALD J.",
+      "last_name": "Duck",
+      "dob": "1966-03-08",
+      "gender": "F",
+      "phone_number2": "",
+      "registration_date": "1991-11-05",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 2,
+      "wrong_phone_number2": 0,
+      "address": 4,
+      "phone_number1": "317-984-5352",
+      "registrar_id": "{4E061E97-91EE-4987-B8B3-580688B817BB}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "first_name": "DAISY L.",
+      "last_name": "Duck",
+      "dob": "1945-11-21",
+      "gender": "F",
+      "phone_number2": "",
+      "registration_date": "2003-05-28",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 2,
+      "wrong_phone_number2": 0,
+      "address": 5,
+      "phone_number1": "",
+      "registrar_id": "{224DA3D5-B879-4587-B2C8-A810D12C9669}",
+      "dump_date": "2014-12-16",
+      "email": "rightwingfucker@douche.net",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "first_name": "HUEY M.",
+      "last_name": "Duck",
+      "dob": "1937-05-04",
+      "gender": "",
+      "phone_number2": "",
+      "registration_date": "1984-10-10",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 2,
+      "wrong_phone_number2": 0,
+      "address": 6,
+      "phone_number1": "",
+      "registrar_id": "{197B3DAC-211D-410B-80C9-173644C3D634}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "first_name": "DUEY H.",
+      "last_name": "Duckie",
+      "dob": "1947-08-29",
+      "gender": "M",
+      "phone_number2": "",
+      "registration_date": "1999-06-02",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 2,
+      "wrong_phone_number2": 0,
+      "address": 7,
+      "phone_number1": "",
+      "registrar_id": "{4032B2D8-1CF9-4797-8358-0DE871278861}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "first_name": "LOUIS J.",
+      "last_name": "Duck",
+      "dob": "1960-10-06",
+      "gender": "",
+      "phone_number2": "",
+      "registration_date": "1986-05-21",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 2,
+      "wrong_phone_number2": 0,
+      "address": 8,
+      "phone_number1": "",
+      "registrar_id": "{25BD5987-D581-4B7C-8D74-838183030D78}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "first_name": "VICTORIA A.",
+      "last_name": "Secret",
+      "dob": "1987-01-11",
+      "gender": "F",
+      "phone_number2": "765-534-4563",
+      "registration_date": "2005-06-08",
+      "is_active": true,
+      "wrong_phone_number1": 2,
+      "affiliation": 1,
+      "wrong_phone_number2": 0,
+      "address": 9,
+      "phone_number1": "765-534-4563",
+      "registrar_id": "{C8DB32B0-AF35-4CAA-AD60-8F6C666EAA82}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "first_name": "NOVA KAY",
+      "last_name": "Super",
+      "dob": "1962-09-23",
+      "gender": "F",
+      "phone_number2": "765-278-4356",
+      "registration_date": "2008-04-18",
+      "is_active": true,
+      "wrong_phone_number1": 2,
+      "affiliation": 1,
+      "wrong_phone_number2": 2,
+      "address": 10,
+      "phone_number1": "765-278-4356",
+      "registrar_id": "{51D2D2FA-B733-4FA0-A8C5-3BCC69D6B09E}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "first_name": "RUSTY K.",
+      "last_name": "Doe",
+      "dob": "1968-10-16",
+      "gender": "M",
+      "phone_number2": "",
+      "registration_date": "2004-10-05",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 1,
+      "wrong_phone_number2": 0,
+      "address": 11,
+      "phone_number1": "317-846-5755",
+      "registrar_id": "{C668DAA3-F9FF-461A-B793-E674B2CDFDC6}",
+      "dump_date": "2014-12-16",
+      "email": "delusionalliberal@space.com",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "first_name": "ANITA J.",
+      "last_name": "Mann",
+      "dob": "1958-06-13",
+      "gender": "",
+      "phone_number2": "",
+      "registration_date": "2002-03-07",
+      "is_active": true,
+      "wrong_phone_number1": 0,
+      "affiliation": 1,
+      "wrong_phone_number2": 0,
+      "address": 12,
+      "phone_number1": "317-844-9212",
+      "registrar_id": "{52150F05-71F4-42C7-9979-7C3625BFE735}",
+      "dump_date": "2014-12-16",
+      "email": "",
+      "wrong_address": 0
+    },
+    "model": "voter.voter",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "city": "Cicero",
+      "country": "US",
+      "datetime": "2014-12-20T02:25:30.583",
+      "state": "IN",
+      "street": "49 S Byron ST",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.325",
+      "state": "IN",
+      "street": "6325 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.384",
+      "state": "IN",
+      "street": "6329 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.437",
+      "state": "IN",
+      "street": "6363 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.494",
+      "state": "IN",
+      "street": "6363 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.552",
+      "state": "IN",
+      "street": "6363 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "city": "Pendleton",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.611",
+      "state": "IN",
+      "street": "6483 S 1000 W",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "city": "Indianapolis",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.669",
+      "state": "IN",
+      "street": "1001 E 101st ST",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "city": "Indianapolis",
+      "country": "US",
+      "datetime": "2014-12-20T02:39:24.731",
+      "state": "IN",
+      "street": "1500 E 101st ST",
+      "postal_code": "44444"
+    },
+    "model": "address.address",
+    "pk": 12
+  }
+]

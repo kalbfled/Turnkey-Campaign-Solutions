@@ -1,0 +1,38 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends 'campaigner/base-campaigner.html' %}
+
+{% block head %}
+{{ block.super }}
+{% load staticfiles %}
+<script src="{% static 'campaigner/campaigner-ir.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<h1>Intelligence Report</h1>
+<p class="text-primary">What did you learn about <span id=voter_name>the voter</span>?</p>
+<h3>Issues</h3>
+<ul id=issues class="list-group"></ul>
+<button id=add class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Add Issue</button>
+<h3>Additional Information</h3>
+<p class="text-info">Enter anything else you think would be useful to your campaigns.</p>
+<textarea id=additional class="form-control well"></textarea>
+<button id=submit type="submit" class="btn btn-success btn-block btn-lg">Submit</button>
+
+<script>
+if (typeof(Storage) !== 'undefined') {
+    // TODO - Don't hard code the API urls.
+    var issues = new Issues('/api/v1/issue/', 'issues');
+    var ir = new IR({% url 'campaigner_dial' %}, 'voter_name');
+    document.getElementById('add').addEventListener('click', function() { issues.addIssue(); });
+    document.getElementById('submit').addEventListener('click', function() { ir.submit(issues.getPreferences()); });
+} else {
+    alert('HTML5 local storage is not available.  Please upgrade your browser.');
+}
+</script>
+{% endblock %}

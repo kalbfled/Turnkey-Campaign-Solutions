@@ -1,0 +1,45 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/tcs-logged-in.html" %}
+
+{% block body %}
+<h1>Find a Campaign</h1>
+
+<p>If you supply an Id number, the other fields will be ignored.</p>
+
+<form method='post' action="{% url 'campaign_search' %}" role="form">
+    {% csrf_token %}
+    {% include "tcswebapp/bootstrap-vertical-form.html" %}
+    <input type="submit" value="Search" class="btn btn-primary btn-block btn-lg">
+</form>
+
+{% if campaigns.all %}
+<h2>Results</h2>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Office</th>
+        <th>State</th>
+        <th>District</th>
+        <th>Ballot Line</th>
+    </tr>
+    {% for campaign in campaigns.all %}
+    <tr>
+        <td>{{ campaign.name }}</td>
+        <td>{{ campaign.office }}</td>
+        <td>{{ campaign.address.state }}</td>
+        <td>{{ campaign.district }}</td>
+        <td>{{ campaign.party }}</td>
+        <td><a href="{% url 'campaign_join' campaign.id %}">join</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No campaigns to display.</p>
+{% endif %}
+{% endblock %}

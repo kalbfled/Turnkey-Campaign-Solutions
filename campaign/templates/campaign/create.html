@@ -1,0 +1,32 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% extends "tcswebapp/base.html" %}
+
+{% block body %}
+<h1>Turnkey Campaign Solutions&trade;</h1>
+<h2>Create a Campaign</h2>
+
+<form method='post' action="{% url 'campaign_create' %}" role="form">
+    {% csrf_token %}
+    <fieldset>
+        <legend>Login Credentials</legend>
+        <p class="text-info">You must already have registered.</p>
+        {% include "tcswebapp/login-form-body.html" with form=login_form %}
+    </fieldset>
+    <fieldset>
+        <legend>Basic Information</legend>
+        {% include "tcswebapp/bootstrap-vertical-form.html" with form=campaign_form %}
+    </fieldset>
+    <fieldset>
+        <legend>Campaign Address</legend>
+        <p class="text-info">This will be visible to prospective volunteers.</p>
+        {% include "tcswebapp/bootstrap-vertical-form.html" with form=address_form %}
+    </fieldset>
+    <input type='submit' value='Create' class="btn btn-primary btn-lg btn-block">
+</form>
+{% endblock %}

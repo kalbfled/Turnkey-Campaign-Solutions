@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+<html lang='en-us'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>{% block title %}Turnkey Campaign Solutions{% endblock %}</title>
+
+    <!-- Load Bootstrap and jQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type='text/css' href="{% static 'tcswebapp/tcs.css' %}">
+    <link rel="icon" type='image/png' href="{% static 'tcswebapp/tcs-icon.png' %}">
+    <link rel="apple-touch-icon" type='image/png' href="{% static 'tcswebapp/tcs-icon.png' %}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+{% block navigation %}{% endblock %}
+<!-- Content container -->
+<div class="container-fluid">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    {% block body %}{% endblock %}
+</div> <!-- End container -->
+</body>
+
+</html>

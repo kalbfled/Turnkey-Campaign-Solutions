@@ -1,0 +1,15 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{{ form.non_field_errors }}
+{% for field in form %}
+    <div class="form-group">
+        {{ field.label_tag }}{% if field.help_text %} {{ field.help_text }}{% endif %}
+        {{ field.errors }}
+        {{ field }}
+    </div>
+{% endfor %}

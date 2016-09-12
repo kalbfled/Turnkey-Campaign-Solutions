@@ -1,0 +1,25 @@
+<!--
+(C) David J. Kalbfleisch 2013
+
+All rights reserved.  You are welcome to inspect this code for your education or to evaluate
+the author's qualifications.  No other uses are permitted.
+-->
+
+{% comment %}
+The form passed to this template is the built-in auth form, which does not assume that the username is an
+e-mail address.  The html below fully specifies the form to give the username/e-mail input element the
+'type="email"' attribute and to give both inputs the class "form-control".
+{% endcomment %}
+
+{{ form.non_field_errors }}
+<div class="form-group">
+    <label for="id_username">E-mail:</label>
+    {{ form.username.errors }}
+    <input id="id_username" type="email" class="form-control" name="username" maxlength="254"></input>
+</div>
+<div class="form-group">
+    <label for="id_password">Passphrase:</label>
+    {{ form.password.errors }}
+    <input id="id_password" type="password" class="form-control" name="password" maxlength="100"></input>
+</div>
+
