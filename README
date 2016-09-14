@@ -42,4 +42,10 @@ TO RUN THIS CODE:
 9. Run the development server.
     $ python manage.py runserver
 
-10. Open the URL http://127.0.0.1:8000.
+10. (Optional) Prepopulate select database tables.  This populates some drop-down menues.
+    $ python manage.py loaddata campaign/fixtures/offices.json
+    $ python manage.py loaddata campaign/fixtures/politicalparties.json
+    $ python manage.py loaddata voter/fixtures/contactmethods.json
+    $ python manage.py loaddata voter/fixtures/issues.json
+
+11. Open the URL http://127.0.0.1:8000.
