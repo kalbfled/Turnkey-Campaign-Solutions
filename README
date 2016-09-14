@@ -48,4 +48,4 @@ TO RUN THIS CODE:
     $ python manage.py loaddata voter/fixtures/contactmethods.json
     $ python manage.py loaddata voter/fixtures/issues.json
 
-11. Open the URL http://127.0.0.1:8000.
+11. Open the URL http://127.0.0.1:8000, register, and manually activate your account in the database.  Alternatively, you can use valid e-mail settings in tcswebapp/settings.py to receive a message with an activation link.
