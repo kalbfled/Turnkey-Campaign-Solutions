@@ -39,13 +39,13 @@ TO RUN THIS CODE:
 8. Initialize the SQLite database.
     $ python manage.py migrate
 
-9. Run the development server.
-    $ python manage.py runserver
-
-10. (Optional) Prepopulate select database tables.  This populates some drop-down menues.
+9. (Optional) Prepopulate select database tables.  This populates some drop-down menues.
     $ python manage.py loaddata campaign/fixtures/offices.json
     $ python manage.py loaddata campaign/fixtures/politicalparties.json
     $ python manage.py loaddata voter/fixtures/contactmethods.json
     $ python manage.py loaddata voter/fixtures/issues.json
+
+10. Run the development server.
+    $ python manage.py runserver
 
 11. Open the URL http://127.0.0.1:8000, register, and manually activate your account in the database.  Alternatively, you can use valid e-mail settings in tcswebapp/settings.py to receive a message with an activation link.
